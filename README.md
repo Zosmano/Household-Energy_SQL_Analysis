@@ -13,10 +13,16 @@ This project analyzes household energy consumption across Canadian provinces usi
 The `.sql` file contains five queries, each answering a distinct question:
 
 1. **Data cleaning** — filters the raw data to reliable rows only, excluding StatCan's "too unreliable to publish" (STATUS = 'F') flags and blank values
-2. **Aggregation** — average household energy consumption (Gigajoules) by province
-3. **JOIN** — joins the energy data to the province/region lookup table to compute average consumption and total population by region
-4. **Window function** — ranks provinces by energy consumption within their own region using `RANK() OVER (PARTITION BY ...)`
-5. **CTE / subquery** — compares each province's average consumption to the national benchmark, calculated once via a CTE
+
+2. ![Query 1 results](query1_cleaning.png)
+3. **Aggregation** — average household energy consumption (Gigajoules) by province
+
+4. ![Query 2 results](query2_province_avg.png)
+5. **JOIN** — joins the energy data to the province/region lookup table to compute average consumption and total population by region
+
+6. ![Query 3 results](query3_region_join.png)
+7. **Window function** — ranks provinces by energy consumption within their own region using `RANK() OVER (PARTITION BY ...)`
+8. **CTE / subquery** — compares each province's average consumption to the national benchmark, calculated once via a CTE
 
 ## A bug worth mentioning
 While building the JOIN query, the population totals came back far too small (e.g. 765 instead of millions). The cause: the population column contained comma thousand-separators as literal text (e.g. "5,057,077"), and SQLite's `CAST(... AS REAL)` silently truncates at the first non-numeric character rather than erroring. Fixed with `REPLACE(Population_2026, ',', '')` before casting, combined with a scoped subquery so the population sum wasn't multiplied by the number of matching energy-data rows.
