@@ -1,4 +1,9 @@
 # Household-Energy_SQL_Analysis
+## 🚀 Live Interactive Report
+
+Click the badge below to explore the live dashboard directly in your browser:
+
+[![Power BI](https://img.shields.io/badge/Power_BI-Live_Dashboard-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://app.powerbi.com/view?r=eyJrIjoiMWFlMjQxZTUtNTVlYi00MjMzLWIzODAtMzk3MjE3ZDQyZjE3IiwidCI6ImM3ZTc5YjlkLWVjZTktNDEzMy04NzQzLWI2Y2FkMjZjNTc0ZiIsImMiOjEwfQ%3D%3D)
 
 Household Energy Consumption Analysis Across Canada Using Statistics Canada Dataset
 
@@ -33,6 +38,3 @@ While building the JOIN query, the population totals came back far too small (e.
 
 ## Cross-validation
 The national benchmark calculated here (**70.1 GJ**) matches the "National Average (Canada)" card in the companion Power BI dashboard (**70.10 GJ**) almost exactly — independent confirmation that both the SQL logic and the DAX measure are correct.
-
-## Related Project
-Interactive Power BI dashboard using the same dataset:[View the dashboard](https://app.powerbi.com/view?r=eyJrIjoiMWFlMjQxZTUtNTVlYi00MjMzLWIzODAtMzk3MjE3ZDQyZjE3IiwidCI6ImM3ZTc5YjlkLWVjZTktNDEzMy04NzQzLWI2Y2FkMjZjNTc0ZiIsImMiOjEwfQ%3D%3D)
