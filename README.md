@@ -3,7 +3,7 @@
 
 Click the badge below to explore the live dashboard directly in your browser:
 
-[![Power BI](https://img.shields.io/badge/Power_BI-Live_Dashboard-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://app.powerbi.com/view?r=eyJrIjoiMWFlMjQxZTUtNTVlYi00MjMzLWIzODAtMzk3MjE3ZDQyZjE3IiwidCI6ImM3ZTc5YjlkLWVjZTktNDEzMy04NzQzLWI2Y2FkMjZjNTc0ZiIsImMiOjEwfQ%3D%3D)
+[![Power BI Live Dashboard](https://img.shields.io/badge/POWER%20BI-LIVE%20DASHBOARD-F2C811?style=for-the-badge&labelColor=555555)](https://app.powerbi.com/view?r=eyJrIjoiODhkYTg0YWItMGU1ZS00YWQ4LTg2MjctZGQ5MWNlNjA3YjQ1IiwidCI6ImM3ZTc5YjlkLWVjZTktNDEzMy04NzQzLWI2Y2FkMjZjNTc0ZiIsImMiOjEwfQ%3D%3D)
 
 Household Energy Consumption Analysis Across Canada Using Statistics Canada Dataset
 
