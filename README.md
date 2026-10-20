@@ -37,4 +37,4 @@ The `.sql` file contains five queries, each answering a distinct question:
 While building the JOIN query, the population totals came back far too small (e.g. 765 instead of millions). The cause: the population column contained comma thousand-separators as literal text (e.g. "5,057,077"), and SQLite's `CAST(... AS REAL)` silently truncates at the first non-numeric character rather than erroring. Fixed with `REPLACE(Population_2026, ',', '')` before casting, combined with a scoped subquery so the population sum wasn't multiplied by the number of matching energy-data rows.
 
 ## Cross-validation
-The national benchmark calculated here (**70.1 GJ**) matches the "National Average (Canada)" card in the companion Power BI dashboard (**70.10 GJ**) almost exactly — independent confirmation that both the SQL logic and the DAX measure are correct.
+The national benchmark calculated here (70.84 GJ, the average across all provincial observations) matches the “National Benchmark” card in the companion Power BI dashboard (70.84 GJ) exactly — independent confirmation that the SQL logic and the DAX measure are consistent.
