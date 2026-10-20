@@ -41,18 +41,19 @@ WHERE s."Energy consumption" = 'Gigajoules per household'
 GROUP BY r.Region, s.GEO
 ORDER BY r.Region, rank_in_region;
 
-/* Query 5: CTE/subquery — compare each province to the national benchmark */
+/* Query 5: CTE/subquery — compare each province to the national benchmark
+   (national benchmark = average of all provincial observations, excluding the 'Canada' aggregate rows) */
 WITH national_avg AS (
   SELECT AVG(VALUE) AS canada_avg
   FROM "StatCan Data"
   WHERE "Energy consumption" = 'Gigajoules per household'
-    AND GEO = 'Canada'
+    AND GEO != 'Canada'
     AND (STATUS IS NULL OR STATUS != 'F')
     AND VALUE IS NOT NULL
 )
 SELECT s.GEO,
        ROUND(AVG(s.VALUE), 1) AS province_avg,
-       ROUND((SELECT canada_avg FROM national_avg), 1) AS national_benchmark,
+       ROUND((SELECT canada_avg FROM national_avg), 2) AS national_benchmark,
        ROUND(AVG(s.VALUE) - (SELECT canada_avg FROM national_avg), 1) AS difference_from_national
 FROM "StatCan Data" s
 WHERE s."Energy consumption" = 'Gigajoules per household'
